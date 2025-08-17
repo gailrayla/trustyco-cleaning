@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './services.html',
   styleUrl: './services.scss',
 })
-export class Services {
+export class ServicesComponent {
   services: ServiceType[] = SERVICE_TYPES;
 
   getServiceIcon(serviceId: string): string {

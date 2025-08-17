@@ -83,7 +83,6 @@ export class ContactFormComponent implements OnInit {
         },
       });
     } else {
-      // Mark all fields as touched to show validation errors
       Object.keys(this.contactForm.controls).forEach((key) => {
         this.contactForm.get(key)?.markAsTouched();
       });
