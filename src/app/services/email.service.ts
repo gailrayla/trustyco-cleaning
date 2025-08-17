@@ -19,8 +19,6 @@ export class EmailService {
     try {
       emailjs.init(environment.emailjs.publicKey);
       this.isEmailJSConfigured = true;
-      console.log('✅ EmailJS initialized successfully');
-      console.log('📧 Ready to send real emails to TrustyCo!');
     } catch (error) {
       console.error('❌ EmailJS initialization failed:', error);
       this.isEmailJSConfigured = false;
@@ -80,7 +78,6 @@ export class EmailService {
         console.log('- Template ID:', environment.emailjs.templateId);
         console.log('- Template params:', templateParams);
 
-        // Still return true for user experience, but log the error
         return of(false);
       })
     );

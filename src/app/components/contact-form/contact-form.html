@@ -2,7 +2,10 @@
   <div class="container">
     <div class="section-header">
       <h2>Get Your Free Quote</h2>
-      <p>Fill out the form below and we'll get back to you within 24 hours</p>
+      <p>
+        Ready to experience the TrustyCo difference? Fill out the form below and
+        we'll get back to you within 24 hours with a personalized quote.
+      </p>
     </div>
 
     <div class="contact-content">
@@ -12,9 +15,10 @@
           <div class="benefit-item">
             <span class="benefit-icon">🛡️</span>
             <div>
-              <h4>Fully Insured</h4>
+              <h4>Fully Insured & Bonded</h4>
               <p>
-                Complete peace of mind with comprehensive insurance coverage
+                Complete peace of mind with comprehensive insurance coverage and
+                bonding for your protection.
               </p>
             </div>
           </div>
@@ -22,21 +26,40 @@
             <span class="benefit-icon">⭐</span>
             <div>
               <h4>5-Star Service</h4>
-              <p>Consistently rated excellent by our satisfied customers</p>
+              <p>
+                Consistently rated excellent by our satisfied customers. We
+                don't just clean, we care.
+              </p>
             </div>
           </div>
           <div class="benefit-item">
             <span class="benefit-icon">💰</span>
             <div>
-              <h4>Fair Pricing</h4>
-              <p>Transparent, competitive rates with no hidden fees</p>
+              <h4>Fair & Transparent Pricing</h4>
+              <p>
+                Competitive rates with no hidden fees. What we quote is what you
+                pay, guaranteed.
+              </p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">🌿</span>
+            <div>
+              <h4>Eco-Friendly Products</h4>
+              <p>
+                Safe for your family and pets. We use environmentally
+                responsible cleaning solutions.
+              </p>
             </div>
           </div>
           <div class="benefit-item">
             <span class="benefit-icon">🕒</span>
             <div>
               <h4>Flexible Scheduling</h4>
-              <p>We work around your schedule for maximum convenience</p>
+              <p>
+                We work around your schedule for maximum convenience. Evening
+                and weekend slots available.
+              </p>
             </div>
           </div>
         </div>
@@ -60,7 +83,7 @@
                 placeholder="Enter your full name"
               />
               <div class="invalid-feedback" *ngIf="isFieldInvalid('name')">
-                Please enter your full name
+                Please enter your full name (minimum 2 characters)
               </div>
             </div>
 
@@ -132,7 +155,7 @@
               placeholder="Enter the full address where cleaning is required"
             ></textarea>
             <div class="invalid-feedback" *ngIf="isFieldInvalid('address')">
-              Please enter the complete property address
+              Please enter the complete property address (minimum 10 characters)
             </div>
           </div>
 
@@ -161,7 +184,7 @@
               formControlName="message"
               class="form-control"
               rows="4"
-              placeholder="Tell us more about your cleaning requirements, property size, specific areas of focus, or any special requests..."
+              placeholder="Tell us more about your cleaning requirements, property size, specific areas of focus, frequency preferences, or any special requests..."
             ></textarea>
           </div>
 
@@ -171,23 +194,24 @@
               class="btn btn-primary btn-lg"
               [disabled]="contactForm.invalid || isSubmitting"
             >
-              <span *ngIf="isSubmitting">Sending...</span>
-              <span *ngIf="!isSubmitting">Get Free Quote</span>
+              <span *ngIf="isSubmitting">Sending Your Request...</span>
+              <span *ngIf="!isSubmitting">Get Your Free Quote</span>
             </button>
           </div>
 
           <div class="success-message" *ngIf="showSuccessMessage">
             <div class="alert alert-success">
-              <strong>Thank you!</strong> Your quote request has been submitted
-              successfully. We'll contact you within 24 hours to discuss your
-              cleaning needs.
+              <strong>🎉 Thank you!</strong> Your quote request has been
+              submitted successfully. We'll contact you within 24 hours to
+              discuss your cleaning needs and provide a detailed quote.
             </div>
           </div>
 
           <div class="error-message" *ngIf="showErrorMessage">
             <div class="alert alert-danger">
-              <strong>Sorry!</strong> There was an error submitting your
-              request. Please try again or call us directly.
+              <strong>❌ Oops!</strong> There was an error submitting your
+              request. Please try again or call us directly at
+              <a href="tel:+61400000000">0400 000 000</a>.
             </div>
           </div>
         </form>

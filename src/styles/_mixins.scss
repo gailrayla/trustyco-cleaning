@@ -1,0 +1,134 @@
+// Responsive breakpoints
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+}
+
+// Button variants
+@mixin button-variant($background, $border, $color: white) {
+  background: $background;
+  border: 2px solid $border;
+  color: $color;
+  font-weight: $font-weight-semibold;
+  text-decoration: none;
+  transition: $transition-base;
+
+  &:hover {
+    background: darken($background, 8%);
+    border-color: darken($border, 8%);
+    color: $color;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: $box-shadow;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($background, 0.3);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Card component
+@mixin card($padding: map-get($spacers, 5)) {
+  background: white;
+  border-radius: $border-radius-lg;
+  box-shadow: $box-shadow;
+  padding: $padding;
+  transition: $transition-base;
+
+  &:hover {
+    box-shadow: $box-shadow-lg;
+    transform: translateY(-4px);
+  }
+}
+
+// Form controls
+@mixin form-control {
+  width: 100%;
+  padding: map-get($spacers, 3) map-get($spacers, 4);
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-base;
+  color: $gray-800;
+  background: white;
+  border: 2px solid $gray-300;
+  border-radius: $border-radius;
+  transition: $transition-base;
+
+  &:focus {
+    outline: none;
+    border-color: $secondary-color;
+    box-shadow: 0 0 0 3px rgba($secondary-color, 0.15);
+  }
+
+  &::placeholder {
+    color: $gray-500;
+    font-weight: $font-weight-normal;
+  }
+}
+
+// Animation mixins
+@mixin fade-in($duration: 0.6s, $delay: 0s) {
+  opacity: 0;
+  animation: fadeIn $duration ease-out $delay forwards;
+}
+
+@mixin slide-up($duration: 0.8s, $delay: 0s) {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp $duration ease-out $delay forwards;
+}
+
+// Section spacing
+@mixin section-spacing(
+  $top: map-get($spacers, 9),
+  $bottom: map-get($spacers, 9)
+) {
+  padding-top: $top;
+  padding-bottom: $bottom;
+
+  @include respond-to(md) {
+    padding-top: $top * 1.5;
+    padding-bottom: $bottom * 1.5;
+  }
+}
+
+// Text utilities
+@mixin text-gradient($gradient: $gradient-primary) {
+  background: $gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Keyframes
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}

@@ -1,0 +1,214 @@
+// Container
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 map-get($spacers, 4);
+
+  @include respond-to(sm) {
+    padding: 0 map-get($spacers, 5);
+  }
+
+  @include respond-to(lg) {
+    padding: 0 map-get($spacers, 6);
+  }
+}
+
+// Grid system
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 map-get($spacers, -3);
+}
+
+.col {
+  padding: 0 map-get($spacers, 3);
+  flex: 1;
+}
+
+// Button styles
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: map-get($spacers, 2);
+  padding: map-get($spacers, 3) map-get($spacers, 5);
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+  transition: $transition-base;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+  }
+}
+
+.btn-primary {
+  @include button-variant($primary-color, $primary-color);
+}
+
+.btn-secondary {
+  @include button-variant($secondary-color, $secondary-color);
+}
+
+.btn-outline-primary {
+  @include button-variant(transparent, $primary-color, $primary-color);
+
+  &:hover {
+    background: $primary-color;
+    color: white;
+  }
+}
+
+.btn-lg {
+  padding: map-get($spacers, 4) map-get($spacers, 6);
+  font-size: $font-size-lg;
+  border-radius: $border-radius-lg;
+}
+
+.btn-sm {
+  padding: map-get($spacers, 2) map-get($spacers, 4);
+  font-size: $font-size-sm;
+}
+
+// Card component
+.card {
+  @include card;
+}
+
+.card-hover {
+  @include card;
+  cursor: pointer;
+}
+
+// Form components
+.form-group {
+  margin-bottom: map-get($spacers, 4);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: map-get($spacers, 2);
+  font-weight: $font-weight-semibold;
+  color: $gray-800;
+  font-size: $font-size-sm;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-control {
+  @include form-control;
+
+  &.is-invalid {
+    border-color: #dc3545;
+
+    &:focus {
+      border-color: #dc3545;
+      box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.15);
+    }
+  }
+}
+
+.invalid-feedback {
+  display: block;
+  margin-top: map-get($spacers, 1);
+  font-size: $font-size-sm;
+  color: #dc3545;
+  font-weight: $font-weight-medium;
+}
+
+// Section styles
+.section {
+  @include section-spacing;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: map-get($spacers, 8);
+
+  h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: $font-weight-bold;
+    margin-bottom: map-get($spacers, 3);
+    @include text-gradient;
+  }
+
+  p {
+    font-size: $font-size-lg;
+    color: $gray-600;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: $line-height-lg;
+  }
+}
+
+// Utility classes
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+
+.text-primary {
+  color: $primary-color;
+}
+.text-secondary {
+  color: $secondary-color;
+}
+.text-muted {
+  color: $gray-600;
+}
+
+.bg-primary {
+  background-color: $primary-color;
+}
+.bg-secondary {
+  background-color: $secondary-color;
+}
+.bg-light {
+  background-color: $light-bg;
+}
+.bg-soft {
+  background-color: $soft-bg;
+}
+
+// Spacing utilities
+@each $prop, $abbrev in (margin: m, padding: p) {
+  @each $size, $length in $spacers {
+    .#{$abbrev}-#{$size} {
+      #{$prop}: $length;
+    }
+    .#{$abbrev}t-#{$size} {
+      #{$prop}-top: $length;
+    }
+    .#{$abbrev}r-#{$size} {
+      #{$prop}-right: $length;
+    }
+    .#{$abbrev}b-#{$size} {
+      #{$prop}-bottom: $length;
+    }
+    .#{$abbrev}l-#{$size} {
+      #{$prop}-left: $length;
+    }
+    .#{$abbrev}x-#{$size} {
+      #{$prop}-left: $length;
+      #{$prop}-right: $length;
+    }
+    .#{$abbrev}y-#{$size} {
+      #{$prop}-top: $length;
+      #{$prop}-bottom: $length;
+    }
+  }
+}

@@ -2,13 +2,16 @@
   <div class="container">
     <div class="section-header">
       <h2>Our Cleaning Services</h2>
-      <p>Professional cleaning solutions tailored to your needs</p>
+      <p>
+        Professional cleaning solutions tailored to your needs with eco-friendly
+        products and experienced staff
+      </p>
     </div>
 
     <div class="services-grid">
       <div class="service-card" *ngFor="let service of services">
         <div class="service-icon">
-          <i [class]="getServiceIcon(service.id)"></i>
+          {{ getServiceIcon(service.id) }}
         </div>
         <h3 class="service-title">{{ service.name }}</h3>
         <p class="service-description">{{ service.description }}</p>
@@ -19,13 +22,37 @@
             </li>
           </ul>
         </div>
+        <div class="service-action">
+          <a href="#contact" class="btn btn-outline-primary">Get Quote</a>
+        </div>
       </div>
     </div>
 
     <div class="services-cta">
-      <h3>Ready to get started?</h3>
-      <p>Contact us today for a free, no-obligation quote</p>
-      <a href="#contact" class="btn btn-primary btn-lg">Get Your Quote</a>
+      <div class="cta-content">
+        <h3>Ready to experience the TrustyCo difference?</h3>
+        <p>
+          Join hundreds of satisfied customers who trust us with their cleaning
+          needs
+        </p>
+        <div class="cta-stats">
+          <div class="stat">
+            <strong>500+</strong>
+            <span>Happy Customers</span>
+          </div>
+          <div class="stat">
+            <strong>100%</strong>
+            <span>Satisfaction Rate</span>
+          </div>
+          <div class="stat">
+            <strong>5★</strong>
+            <span>Average Rating</span>
+          </div>
+        </div>
+        <a href="#contact" class="btn btn-primary btn-lg"
+          >Get Your Free Quote Today</a
+        >
+      </div>
     </div>
   </div>
 </section>

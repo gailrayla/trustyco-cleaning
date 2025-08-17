@@ -1,0 +1,129 @@
+// src/styles/_variables.scss (UPDATED with TrustyCo brand colors)
+// TrustyCo Brand Colors
+$trusty-pink: #0f87bd;
+$trusty-navy: #250017;
+$trusty-light-blue: #e6fbff;
+
+// Extended Color Palette
+$pakistan-green: #0a420c;
+$pakistan-green-2: #0d4511;
+$ivory: #fcfeef;
+$ivory-2: #f6f4e4;
+$ivory-3: #f8f8e9;
+
+// Brand Color System
+$primary-color: $pakistan-green;
+$secondary-color: $trusty-pink;
+$accent-color: $trusty-navy;
+$success-color: $pakistan-green-2;
+$light-color: $ivory;
+$light-bg: $ivory-3;
+$soft-bg: $ivory-2;
+$dark-color: $trusty-navy;
+
+// Neutral Colors (for text and borders)
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+
+// Typography - Clean & Minimal Fonts
+$font-family-primary: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+  Roboto, sans-serif;
+$font-family-headings: "Poppins", "Inter", sans-serif;
+$font-family-base: $font-family-primary;
+
+$font-size-base: 1rem;
+$font-size-sm: 0.875rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.25rem;
+
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+$line-height-base: 1.6;
+$line-height-sm: 1.4;
+$line-height-lg: 1.8;
+
+// Spacing System
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  // 4px
+  2: $spacer * 0.5,
+  // 8px
+  3: $spacer,
+  // 16px
+  4: $spacer * 1.5,
+  // 24px
+  5: $spacer * 2,
+  // 32px
+  6: $spacer * 2.5,
+  // 40px
+  7: $spacer * 3,
+  // 48px
+  8: $spacer * 4,
+  // 64px
+  9: $spacer * 5,
+  // 80px
+  10: $spacer * 6 // 96px,
+);
+
+// Breakpoints
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+// Border & Radius
+$border-width: 1px;
+$border-color: $gray-300;
+$border-radius: 8px;
+$border-radius-sm: 4px;
+$border-radius-lg: 12px;
+$border-radius-xl: 16px;
+$border-radius-pill: 50rem;
+
+// Shadows
+$box-shadow-sm: 0 2px 4px rgba($dark-color, 0.08);
+$box-shadow: 0 4px 12px rgba($dark-color, 0.15);
+$box-shadow-lg: 0 8px 24px rgba($dark-color, 0.2);
+$box-shadow-xl: 0 16px 32px rgba($dark-color, 0.25);
+
+// Transitions
+$transition-base: all 0.3s ease;
+$transition-fast: all 0.15s ease;
+$transition-slow: all 0.5s ease;
+
+// Brand Gradients
+$gradient-primary: linear-gradient(
+  135deg,
+  $primary-color 0%,
+  $pakistan-green-2 100%
+);
+$gradient-secondary: linear-gradient(
+  135deg,
+  $secondary-color 0%,
+  lighten($secondary-color, 10%) 100%
+);
+$gradient-soft: linear-gradient(135deg, $ivory-3 0%, $ivory 100%);
+$gradient-hero: linear-gradient(
+  135deg,
+  $primary-color 0%,
+  $pakistan-green-2 50%,
+  $secondary-color 100%
+);
