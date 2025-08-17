@@ -1,1 +1,197 @@
-<p>contact-form works!</p>
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Get Your Free Quote</h2>
+      <p>Fill out the form below and we'll get back to you within 24 hours</p>
+    </div>
+
+    <div class="contact-content">
+      <div class="contact-info">
+        <h3>Why Choose TrustyCo?</h3>
+        <div class="benefits">
+          <div class="benefit-item">
+            <span class="benefit-icon">🛡️</span>
+            <div>
+              <h4>Fully Insured</h4>
+              <p>
+                Complete peace of mind with comprehensive insurance coverage
+              </p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">⭐</span>
+            <div>
+              <h4>5-Star Service</h4>
+              <p>Consistently rated excellent by our satisfied customers</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">💰</span>
+            <div>
+              <h4>Fair Pricing</h4>
+              <p>Transparent, competitive rates with no hidden fees</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">🕒</span>
+            <div>
+              <h4>Flexible Scheduling</h4>
+              <p>We work around your schedule for maximum convenience</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-container">
+        <form
+          [formGroup]="contactForm"
+          (ngSubmit)="onSubmit()"
+          class="contact-form"
+        >
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name" class="form-label">Full Name *</label>
+              <input
+                type="text"
+                id="name"
+                formControlName="name"
+                class="form-control"
+                [class.is-invalid]="isFieldInvalid('name')"
+                placeholder="Enter your full name"
+              />
+              <div class="invalid-feedback" *ngIf="isFieldInvalid('name')">
+                Please enter your full name
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address *</label>
+              <input
+                type="email"
+                id="email"
+                formControlName="email"
+                class="form-control"
+                [class.is-invalid]="isFieldInvalid('email')"
+                placeholder="your.email@example.com"
+              />
+              <div class="invalid-feedback" *ngIf="isFieldInvalid('email')">
+                Please enter a valid email address
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone" class="form-label">Phone Number *</label>
+              <input
+                type="tel"
+                id="phone"
+                formControlName="phone"
+                class="form-control"
+                [class.is-invalid]="isFieldInvalid('phone')"
+                placeholder="04XX XXX XXX"
+              />
+              <div class="invalid-feedback" *ngIf="isFieldInvalid('phone')">
+                Please enter a valid Australian phone number
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="serviceType" class="form-label">Service Type *</label>
+              <select
+                id="serviceType"
+                formControlName="serviceType"
+                class="form-control"
+                [class.is-invalid]="isFieldInvalid('serviceType')"
+              >
+                <option value="">Select a service</option>
+                <option
+                  [value]="service.id"
+                  *ngFor="let service of serviceTypes"
+                >
+                  {{ service.name }}
+                </option>
+              </select>
+              <div
+                class="invalid-feedback"
+                *ngIf="isFieldInvalid('serviceType')"
+              >
+                Please select a service type
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="address" class="form-label">Property Address *</label>
+            <textarea
+              id="address"
+              formControlName="address"
+              class="form-control"
+              [class.is-invalid]="isFieldInvalid('address')"
+              rows="2"
+              placeholder="Enter the full address where cleaning is required"
+            ></textarea>
+            <div class="invalid-feedback" *ngIf="isFieldInvalid('address')">
+              Please enter the complete property address
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="preferredContactTime" class="form-label"
+              >Preferred Contact Time</label
+            >
+            <select
+              id="preferredContactTime"
+              formControlName="preferredContactTime"
+              class="form-control"
+            >
+              <option value="">Any time</option>
+              <option value="Morning (8am - 12pm)">Morning (8am - 12pm)</option>
+              <option value="Afternoon (12pm - 5pm)">
+                Afternoon (12pm - 5pm)
+              </option>
+              <option value="Evening (5pm - 8pm)">Evening (5pm - 8pm)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message" class="form-label">Additional Details</label>
+            <textarea
+              id="message"
+              formControlName="message"
+              class="form-control"
+              rows="4"
+              placeholder="Tell us more about your cleaning requirements, property size, specific areas of focus, or any special requests..."
+            ></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button
+              type="submit"
+              class="btn btn-primary btn-lg"
+              [disabled]="contactForm.invalid || isSubmitting"
+            >
+              <span *ngIf="isSubmitting">Sending...</span>
+              <span *ngIf="!isSubmitting">Get Free Quote</span>
+            </button>
+          </div>
+
+          <div class="success-message" *ngIf="showSuccessMessage">
+            <div class="alert alert-success">
+              <strong>Thank you!</strong> Your quote request has been submitted
+              successfully. We'll contact you within 24 hours to discuss your
+              cleaning needs.
+            </div>
+          </div>
+
+          <div class="error-message" *ngIf="showErrorMessage">
+            <div class="alert alert-danger">
+              <strong>Sorry!</strong> There was an error submitting your
+              request. Please try again or call us directly.
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

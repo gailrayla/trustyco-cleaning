@@ -1,1 +1,31 @@
-<p>services works!</p>
+<section id="services" class="services-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Our Cleaning Services</h2>
+      <p>Professional cleaning solutions tailored to your needs</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card" *ngFor="let service of services">
+        <div class="service-icon">
+          <i [class]="getServiceIcon(service.id)"></i>
+        </div>
+        <h3 class="service-title">{{ service.name }}</h3>
+        <p class="service-description">{{ service.description }}</p>
+        <div class="service-features">
+          <ul>
+            <li *ngFor="let feature of getServiceFeatures(service.id)">
+              {{ feature }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="services-cta">
+      <h3>Ready to get started?</h3>
+      <p>Contact us today for a free, no-obligation quote</p>
+      <a href="#contact" class="btn btn-primary btn-lg">Get Your Quote</a>
+    </div>
+  </div>
+</section>
