@@ -54,10 +54,6 @@ export class EmailService {
       }),
     };
 
-    console.log('📧 Sending real email via EmailJS...');
-    console.log('📨 Template:', environment.emailjs.templateId);
-    console.log('📬 Service:', environment.emailjs.serviceId);
-
     return from(
       emailjs.send(
         environment.emailjs.serviceId,
@@ -66,39 +62,15 @@ export class EmailService {
       )
     ).pipe(
       map((response) => {
-        console.log('🎉 SUCCESS! Email sent to TrustyCo inbox!');
-        console.log('📧 Response:', response);
-        console.log('💼 Customer will receive confirmation');
         return true;
       }),
       catchError((error) => {
-        console.error('❌ Email sending failed:', error);
-        console.log('🔧 Troubleshooting info:');
-        console.log('- Service ID:', environment.emailjs.serviceId);
-        console.log('- Template ID:', environment.emailjs.templateId);
-        console.log('- Template params:', templateParams);
-
         return of(false);
       })
     );
   }
 
   private fallbackMode(formData: ContactForm): Observable<boolean> {
-    console.log('⚠️ EmailJS not configured - using fallback mode');
-    console.log('📋 QUOTE REQUEST DETAILS:');
-    console.log('════════════════════════════════════════════');
-    console.log('👤 Customer:', formData.name);
-    console.log('📧 Email:', formData.email);
-    console.log('📱 Phone:', formData.phone);
-    console.log('🏠 Address:', formData.address);
-    console.log('🧹 Service:', formData.serviceType.name);
-    console.log(
-      '⏰ Contact Time:',
-      formData.preferredContactTime || 'Any time'
-    );
-    console.log('💬 Message:', formData.message || 'None');
-    console.log('════════════════════════════════════════════');
-
     return of(true).pipe(delay(1000));
   }
 }
