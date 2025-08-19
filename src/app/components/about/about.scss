@@ -1,0 +1,190 @@
+.about-section {
+  padding: 5rem 0;
+  background: white;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(10, 66, 12, 0.2),
+      transparent
+    );
+  }
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  @media (min-width: 768px) {
+    padding: 0 2rem;
+  }
+}
+
+.about-content {
+  text-align: center;
+}
+
+.about-header {
+  margin-bottom: 3rem;
+
+  h2 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: #0a420c;
+    margin-bottom: 1rem;
+    font-family: "Poppins", sans-serif;
+  }
+}
+
+.about-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #0a420c, #0f87bd);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.about-story {
+  margin-bottom: 4rem;
+  text-align: left;
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
+}
+
+.story-part {
+  margin-bottom: 2rem;
+
+  .story-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #495057;
+    margin: 0;
+
+    strong {
+      color: #0a420c;
+      font-weight: 600;
+    }
+  }
+}
+
+.story-conclusion {
+  background: linear-gradient(135deg, #fcfeef, #f8f8e9);
+  padding: 2rem;
+  border-radius: 12px;
+  border-left: 4px solid #0f87bd;
+  margin-top: 2.5rem;
+
+  .story-text {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #0a420c;
+    margin: 0;
+    font-style: italic;
+  }
+}
+
+.about-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+
+  @media (max-width: 576px) {
+    gap: 2rem;
+  }
+}
+
+.stat-item {
+  text-align: center;
+
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #0f87bd;
+    margin-bottom: 0.5rem;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
+}
+
+.about-footer {
+  border-top: 1px solid rgba(10, 66, 12, 0.1);
+  padding-top: 2rem;
+
+  .business-info {
+    .abn-info {
+      font-size: 0.9rem;
+      color: #0a420c;
+      font-weight: 600;
+      margin: 0 0 0.25rem 0;
+    }
+
+    .trading-info {
+      font-size: 0.85rem;
+      color: #6c757d;
+      margin: 0;
+    }
+  }
+}
+
+// Alternative: Dark version
+/*
+.about-section {
+  background: #0A420C;
+  color: white;
+  
+  .about-header h2 {
+    color: white;
+  }
+  
+  .story-part .story-text {
+    color: rgba(white, 0.9);
+    
+    strong {
+      color: #E6FBFF;
+    }
+  }
+  
+  .story-conclusion {
+    background: rgba(white, 0.05);
+    border-left-color: #0F87BD;
+    
+    .story-text {
+      color: #E6FBFF;
+    }
+  }
+  
+  .stat-item .stat-label {
+    color: rgba(white, 0.7);
+  }
+  
+  .business-info {
+    .abn-info {
+      color: #E6FBFF;
+    }
+    
+    .trading-info {
+      color: rgba(white, 0.6);
+    }
+  }
+}
+*/

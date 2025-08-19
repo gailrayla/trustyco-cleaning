@@ -4,6 +4,7 @@ import { HeroComponent } from '../../components/hero/hero.component';
 import { ServicesComponent } from '../../components/services/services.component';
 import { HeaderComponent } from '../../components/header/header.component';
 import { Footer } from '../../components/footer/footer.component';
+import { AboutComponent } from '../../components/about/about';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +12,7 @@ import { Footer } from '../../components/footer/footer.component';
   imports: [
     HeroComponent,
     ServicesComponent,
+    AboutComponent,
     ContactFormComponent,
     HeaderComponent,
     Footer,
