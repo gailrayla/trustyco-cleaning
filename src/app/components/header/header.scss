@@ -140,14 +140,14 @@
     min-height: 70px;
   }
 
-  .navbar-brand .brand-logo {
-    height: 50px;
+  // .navbar-brand .brand-logo {
+  //   height: 50px;
 
-    .logo-img {
-      height: 40px;
-      max-width: 160px;
-    }
-  }
+  //   .logo-img {
+  //     height: 40px;
+  //     max-width: 160px;
+  //   }
+  // }
 
   .navbar-nav {
     display: none;
@@ -160,7 +160,7 @@
 
 @media (max-width: 480px) {
   .navbar-brand .brand-logo .logo-img {
-    height: 35px;
+    height: 80px;
     max-width: 140px;
   }
 }
