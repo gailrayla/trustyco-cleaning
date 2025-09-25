@@ -5,7 +5,7 @@ export const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    title: 'TrustyCo Cleaning Services',
+    title: 'Trusty Co Cleaning Services',
   },
   {
     path: '**',
