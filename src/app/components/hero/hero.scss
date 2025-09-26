@@ -18,7 +18,7 @@
   color: #0a420c;
 
   .hero-title {
-    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-size: clamp(1.6rem, 5vw, 3.5rem);
     font-weight: 900;
     margin-bottom: 2rem;
     line-height: 1.2;
@@ -50,11 +50,15 @@
   }
 
   @media (max-width: 576px) {
-    gap: 1rem;
-    flex-direction: column;
+    gap: 0.8rem;
+
+    .value {
+      font-size: 0.9rem; 
+    }
 
     .value:not(:last-child)::after {
-      display: none;
+      right: -0.6rem; 
+      font-size: 0.8rem;
     }
   }
 }
@@ -68,8 +72,8 @@
 
 .hero-buttons {
   .btn {
-    font-size: 1.1rem;
-    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    padding: 0.75rem 2rem;
     font-weight: 600;
   }
 }
@@ -90,5 +94,29 @@
 
   .hero-subtitle {
     margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero {
+    padding-top: 100px; 
+  }
+
+  .hero-content {
+    padding-top: 1rem; 
+  }
+
+  .hero-content .hero-title {
+    font-size: 1.8rem;
+    line-height: 1.3;
+  }
+
+  .hero-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .hero-buttons .btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.5rem;
   }
 }
