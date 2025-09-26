@@ -3,6 +3,7 @@
   display: flex;
   align-items: center;
   position: relative;
+  padding-top: 80px; 
   background: linear-gradient(135deg, #f8f8e9 0%, #f8f8e9 100%);
 
   .container {
@@ -17,7 +18,7 @@
   color: #0a420c;
 
   .hero-title {
-    font-size: clamp(1.6rem, 5vw, 3.5rem);
+    font-size: clamp(2.2rem, 5vw, 3.5rem); 
     font-weight: 900;
     margin-bottom: 2rem;
     line-height: 1.2;
@@ -71,8 +72,8 @@
 
 .hero-buttons {
   .btn {
-    font-size: 1rem;
-    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    padding: 1rem 2.5rem;
     font-weight: 600;
   }
 }
@@ -80,6 +81,7 @@
 @media (max-width: 768px) {
   .hero {
     min-height: 80vh;
+    padding-top: 70px;
   }
 
   .hero-content .hero-title {
@@ -96,7 +98,6 @@
 }
 
 @media (max-width: 576px) {
-
   .hero-content {
     padding-top: 1rem; 
   }
