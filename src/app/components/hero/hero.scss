@@ -3,7 +3,6 @@
   display: flex;
   align-items: center;
   position: relative;
-  padding-top: 80px;
   background: linear-gradient(135deg, #f8f8e9 0%, #f8f8e9 100%);
 
   .container {
@@ -81,7 +80,6 @@
 @media (max-width: 768px) {
   .hero {
     min-height: 80vh;
-    padding-top: 70px;
   }
 
   .hero-content .hero-title {
@@ -98,9 +96,6 @@
 }
 
 @media (max-width: 576px) {
-  .hero {
-    padding-top: 100px; 
-  }
 
   .hero-content {
     padding-top: 1rem; 

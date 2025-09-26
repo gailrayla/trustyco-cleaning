@@ -1,6 +1,7 @@
 <header class="header">
   <nav class="navbar">
     <div class="container">
+      <!-- Brand -->
       <div class="navbar-brand">
         <div class="brand-logo">
           <img
@@ -15,7 +16,14 @@
           </div>
         </div>
       </div>
-      <div class="navbar-nav">
+
+      <button class="hamburger" (click)="toggleMenu()" aria-label="Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <div class="navbar-nav" [class.active]="menuOpen">
         <a href="#services" class="nav-link">Services</a>
         <a href="#about" class="nav-link">About</a>
         <a href="#contact" class="nav-link">Contact</a>

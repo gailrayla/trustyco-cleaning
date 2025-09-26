@@ -10,4 +10,9 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderComponent {
   hasLogo = true;
+  menuOpen = false;
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
 }
