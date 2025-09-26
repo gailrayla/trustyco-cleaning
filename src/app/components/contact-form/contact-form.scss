@@ -2,6 +2,10 @@
   padding: 5rem 0;
   background: linear-gradient(135deg, #f8f8e9 0%, #fcfeef 100%);
   position: relative;
+
+  @media (max-width: 768px) {
+    padding: 3rem 1rem;
+  }
 }
 
 .contact-content {
@@ -22,6 +26,11 @@
     margin-bottom: 2rem;
     color: #0a420c;
     font-family: "Poppins", sans-serif;
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+      text-align: center;
+    }
   }
 }
 
@@ -67,6 +76,23 @@
     color: #6c757d;
     line-height: 1.5;
   }
+
+  @media (max-width: 768px) {
+    flex-direction: row;
+    padding: 1rem;
+
+    h4 {
+      font-size: 1rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
+
+    .benefit-icon {
+      font-size: 1.5rem;
+    }
+  }
 }
 
 .contact-form-container {
@@ -85,6 +111,10 @@
     height: 4px;
     background: linear-gradient(90deg, #0a420c, #0f87bd);
     border-radius: 16px 16px 0 0;
+  }
+
+  @media (max-width: 768px) {
+    padding: 2rem 1.5rem;
   }
 }
 
@@ -191,6 +221,15 @@
       opacity: 0.6;
       cursor: not-allowed;
       transform: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .btn {
+      width: 100%;
+      min-width: unset;
+      font-size: 1rem;
+      padding: 0.9rem 1.5rem;
     }
   }
 }
