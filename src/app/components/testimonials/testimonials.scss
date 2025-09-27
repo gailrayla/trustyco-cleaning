@@ -1,0 +1,278 @@
+// src/app/components/testimonials/testimonials.component.scss
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.testimonials {
+  background: linear-gradient(135deg, $ivory-3 0%, $light-color 100%);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, $gray-200 50%, transparent 100%);
+  }
+}
+
+// Carousel Layout (responsive for all screen sizes)
+.testimonials-carousel {
+  display: block;
+}
+
+.carousel-container {
+  border-radius: $border-radius-lg;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.testimonial-slide {
+  flex: 0 0 100%;
+  padding: 0 map-get($spacers, 3);
+  
+  @include respond-to(sm) {
+    padding: 0 map-get($spacers, 4);
+  }
+  
+  @include respond-to(lg) {
+    padding: 0 map-get($spacers, 5);
+  }
+}
+
+// Testimonial Image Styles
+.testimonial-image-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px; // Limit maximum width
+  margin: 0 auto; // Center the image
+  height: 250px;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  background: $gradient-secondary;
+  transition: $transition-base;
+  
+  @include respond-to(sm) {
+    height: 280px;
+    max-width: 650px;
+  }
+  
+  @include respond-to(md) {
+    height: 320px;
+    max-width: 700px;
+  }
+  
+  @include respond-to(lg) {
+    height: 350px;
+    max-width: 750px;
+  }
+  
+  @include respond-to(xl) {
+    height: 380px;
+    max-width: 800px;
+  }
+
+  &.active {
+    transform: scale(1.02);
+    box-shadow: $box-shadow-lg;
+  }
+}
+
+.testimonial-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: $transition-base;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+// Carousel Controls
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: map-get($spacers, 5);
+  margin-top: map-get($spacers, 6);
+  padding: 0 map-get($spacers, 4);
+  
+  @include respond-to(lg) {
+    gap: map-get($spacers, 6);
+    margin-top: map-get($spacers, 8);
+  }
+}
+
+.carousel-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid $gray-300;
+  background: white;
+  color: $gray-600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: $transition-base;
+  flex-shrink: 0;
+
+  @include respond-to(lg) {
+    width: 52px;
+    height: 52px;
+  }
+
+  &:hover {
+    background: $secondary-color;
+    color: white;
+    border-color: $secondary-color;
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+    
+    @include respond-to(lg) {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.carousel-indicators {
+  display: flex;
+  gap: map-get($spacers, 2);
+  align-items: center;
+  
+  @include respond-to(lg) {
+    gap: map-get($spacers, 3);
+  }
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: rgba($gray-400, 0.5);
+  cursor: pointer;
+  transition: $transition-fast;
+
+  @include respond-to(lg) {
+    width: 14px;
+    height: 14px;
+  }
+
+  &.active {
+    background: $secondary-color;
+    transform: scale(1.2);
+  }
+
+  &:hover:not(.active) {
+    background: rgba($secondary-color, 0.6);
+    transform: scale(1.1);
+  }
+}
+
+// Testimonials Footer
+.testimonials-footer {
+  text-align: center;
+  margin-top: map-get($spacers, 8);
+  padding-top: map-get($spacers, 6);
+  border-top: 1px solid rgba($gray-300, 0.5);
+
+  @include respond-to(lg) {
+    margin-top: map-get($spacers, 10);
+    padding-top: map-get($spacers, 8);
+  }
+}
+
+.more-testimonials-text {
+  font-size: $font-size-lg;
+  color: $gray-600;
+  margin-bottom: map-get($spacers, 4);
+  font-weight: $font-weight-medium;
+  
+  @include respond-to(lg) {
+    font-size: $font-size-xl;
+    margin-bottom: map-get($spacers, 5);
+  }
+}
+
+// Animation for auto-play indication
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.carousel-controls {
+  .indicator.active {
+    animation: pulse 2s ease-in-out infinite;
+  }
+}
+
+// Accessibility improvements
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track {
+    transition: none;
+  }
+  
+  .testimonial-image-container {
+    transition: none;
+  }
+  
+  .testimonial-image {
+    transition: none;
+  }
+  
+  .carousel-controls .indicator.active {
+    animation: none;
+  }
+}
+
+// Focus styles
+.carousel-btn:focus-visible,
+.indicator:focus-visible {
+  outline: 2px solid $secondary-color;
+  outline-offset: 2px;
+}
+
+// Print styles
+@media print {
+  .testimonials-carousel {
+    .carousel-track {
+      transform: none !important;
+    }
+    
+    .testimonial-slide {
+      flex: 0 0 100%;
+      page-break-inside: avoid;
+    }
+    
+    .carousel-controls {
+      display: none;
+    }
+  }
+
+  .testimonials-footer {
+    display: none;
+  }
+}

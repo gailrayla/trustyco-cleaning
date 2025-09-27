@@ -1,0 +1,75 @@
+<!-- src/app/components/testimonials/testimonials.component.html -->
+<section class="testimonials section">
+  <div class="container">
+    <div class="section-header">
+      <h2>What Our Clients Say</h2>
+      <p>Trusted by families and businesses who value thoughtful, reliable cleaning services</p>
+    </div>
+
+    <!-- Single Carousel that adapts to mobile/desktop -->
+    <div class="testimonials-carousel" 
+         (touchstart)="onTouchStart($event)"
+         (touchend)="onTouchEnd($event)"
+         (mouseenter)="pauseAutoPlay()"
+         (mouseleave)="resumeAutoPlay()"
+         #testimonialContainer>
+      
+      <div class="carousel-container">
+        <div class="carousel-track" 
+             [style.transform]="'translateX(-' + (currentSlide * 100) + '%)'">
+          <div class="testimonial-slide" *ngFor="let testimonial of testimonials; let i = index">
+            <div class="testimonial-image-container" 
+                 [class.active]="i === currentSlide">
+              <img [src]="testimonial.imagePath" 
+                   [alt]="testimonial.imageAlt"
+                   class="testimonial-image">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carousel Controls -->
+      <div class="carousel-controls">
+        <button class="carousel-btn prev" 
+                (click)="prevSlide()"
+                aria-label="Previous testimonial">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15,18 9,12 15,6"></polyline>
+          </svg>
+        </button>
+        
+        <div class="carousel-indicators">
+          <button class="indicator" 
+                  *ngFor="let testimonial of testimonials; let i = index"
+                  [class.active]="i === currentSlide"
+                  (click)="goToSlide(i)"
+                  [attr.aria-label]="'Go to testimonial ' + (i + 1)">
+          </button>
+        </div>
+        
+        <button class="carousel-btn next" 
+                (click)="nextSlide()"
+                aria-label="Next testimonial">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9,18 15,12 9,6"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- See More Testimonials Link -->
+    <div class="testimonials-footer">
+      <p>Want to see more reviews from our happy clients?</p>
+      <a href="https://www.airtasker.com/users/0f550a1d79bc-p-29056214/" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         class="btn btn-outline-primary">
+        View More Testimonials
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="m7 17 10-10"></path>
+          <path d="m17 7-10 0 0 10"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
