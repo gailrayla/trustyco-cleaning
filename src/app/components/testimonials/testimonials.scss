@@ -51,31 +51,29 @@
 .testimonial-image-container {
   position: relative;
   width: 100%;
-  max-width: 600px; // Limit maximum width
+  max-width: 500px; // Smaller max width for mobile
   margin: 0 auto; // Center the image
-  height: 250px;
   border-radius: $border-radius-lg;
   overflow: hidden;
   background: $gradient-secondary;
   transition: $transition-base;
   
+  // Make container maintain aspect ratio and fit content
+  aspect-ratio: auto; // Let image determine the ratio
+  
   @include respond-to(sm) {
-    height: 280px;
-    max-width: 650px;
+    max-width: 600px;
   }
   
   @include respond-to(md) {
-    height: 320px;
     max-width: 700px;
   }
   
   @include respond-to(lg) {
-    height: 350px;
     max-width: 750px;
   }
   
   @include respond-to(xl) {
-    height: 380px;
     max-width: 800px;
   }
 
@@ -87,13 +85,12 @@
 
 .testimonial-image {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+  height: auto; // Let image maintain its natural aspect ratio
+  display: block; // Remove any inline spacing
   transition: $transition-base;
   
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.02); // Reduced scale to prevent cropping
   }
 }
 
